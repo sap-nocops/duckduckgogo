@@ -1,4 +1,4 @@
-module github.com/sap-noc0ps/duckduckgogo
+module github.com/sap-nocops/duckduckgogo
 
 go 1.15
 
