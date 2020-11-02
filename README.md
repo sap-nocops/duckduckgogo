@@ -12,8 +12,8 @@ duckduckgogo implements a search api in go-lang for DuckDuckGo scraping the html
 package main
 
 import (
-	"fmt"
-	"github.com/sap-nocops/duckduckgogo/client"
+    "fmt"
+    "github.com/sap-nocops/duckduckgogo/client"
 )
 
 func main() {
