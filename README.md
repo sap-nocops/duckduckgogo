@@ -38,17 +38,17 @@ in your test. For example:
 
 ```go
 type DdgMock struct {
-	results []client.Result
+    results []client.Result
 }
 
 func (d *DdgMock) Search(query string) ([]client.Result, error) {
-	return d.results, nil
+    return d.results, nil
 }
 
 func (d *DdgMock) SearchLimited(query string, limit int) ([]client.Result, error) {
     if limit < 0 || limit > len(d.results) {
         return nil, fmt.Errorf("invalid limit")
     }
-	return d.results[0:limit], nil
+    return d.results[0:limit], nil
 }
 ```
