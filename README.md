@@ -46,6 +46,9 @@ func (d *DdgMock) Search(query string) ([]client.Result, error) {
 }
 
 func (d *DdgMock) SearchLimited(query string, limit int) ([]client.Result, error) {
+    if limit < 0 || limit > len(d.results) {
+        return nil, fmt.Errorf("invalid limit")
+    }
 	return d.results[0:limit], nil
 }
 ```
