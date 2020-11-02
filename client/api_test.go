@@ -27,6 +27,18 @@ func (d *DuckDuckGoServer) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNotFound)
 }
 
+func TestDuckDuckGoSearchClient_Search(t *testing.T) {
+	server := httptest.NewServer(&DuckDuckGoServer{})
+	defer server.Close()
+
+	c := DuckDuckGoSearchClient{
+		baseUrl: server.URL,
+	}
+	got, err := c.Search("antani")
+	require.NoError(t, err)
+	require.Len(t, got, 30)
+}
+
 func TestDuckDuckGoSearchClient_SearchLimited(t *testing.T) {
 	type args struct {
 		query string
