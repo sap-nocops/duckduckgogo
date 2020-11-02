@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/github/license/sap-nocops/duckduckgogo.svg)](LICENSE)
 
 ### Simple DuckDuckGo search api
-duckduckgogo implements a search api for DuckDuckGo scraping the html search page
+duckduckgogo implements a search api in go-lang for DuckDuckGo scraping the html search page
 
 ### Usage 
 
@@ -31,3 +31,21 @@ func main() {
 	}
 }
 ``` 
+
+### Testing
+If you need to mock the ddg results for testing purpose you can use the `SearchClient` interface and implementing it
+in your test. For example:
+
+```go
+type DdgMock struct {
+	results []client.Result
+}
+
+func (d *DdgMock) Search(query string) ([]client.Result, error) {
+	return d.results, nil
+}
+
+func (d *DdgMock) SearchLimited(query string, limit int) ([]client.Result, error) {
+	return d.results[0:limit], nil
+}
+```
