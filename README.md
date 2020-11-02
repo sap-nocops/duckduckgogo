@@ -17,18 +17,18 @@ import (
 )
 
 func main() {
-	ddg := client.NewDuckDuckGoSearchClient()
-	res, err := ddg.SearchLimited("antani", 10)
-	if err != nil {
-		fmt.Printf("error: %v", err)
-		return
-	}
-	for i, r := range res {
-		fmt.Printf("*********** RESULT %d\n", i)
-		fmt.Printf("url:     %s\n", r.FormattedUrl)
-		fmt.Printf("title:   %s\n", r.Title)
-		fmt.Printf("snippet: %s\n", r.Snippet)
-	}
+    ddg := client.NewDuckDuckGoSearchClient()
+    res, err := ddg.SearchLimited("antani", 10)
+    if err != nil {
+        fmt.Printf("error: %v", err)
+        return
+    }
+    for i, r := range res {
+        fmt.Printf("*********** RESULT %d\n", i)
+        fmt.Printf("url:     %s\n", r.FormattedUrl)
+        fmt.Printf("title:   %s\n", r.Title)
+        fmt.Printf("snippet: %s\n", r.Snippet)
+    }
 }
 ``` 
 
